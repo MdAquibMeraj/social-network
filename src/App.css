@@ -171,10 +171,5 @@
   width: 100%;
 }
 
-@media (max-width: 767px) {
-  .aboutyou {
-    width: 100%;
-  }
-}
 
 /*** About profile ***/

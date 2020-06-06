@@ -7,7 +7,7 @@ class AboutYou extends React.Component {
 			<div className="aboutyou p-md-3">
 				<div className="row">
 					<div className="col-12">
-						<div className="card card-inverse" style={{ backgroundColor: '#fff', borderColor: '#333' }}>
+						<div className="card card-inverse" style={{ backgroundColor: '#e9eaed', borderColor: '#e3e3e3' }}>
 							<div className="card-block">
 								<div className="row">
 									<div className="col-md-4 col-sm-4 text-center">
