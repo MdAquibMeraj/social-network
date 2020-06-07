@@ -10,7 +10,7 @@ class AboutYou extends React.Component {
 			<div className="aboutyou p-md-3">
 				<div className="container">
 					<div className="row">
-						<div className="col-md-4 col-sm-12 mt-md-4">
+						{/* <div className="col-md-4 col-sm-12 mt-md-4">
 							<div className="card">
 								<img className="card-img-top" style={{ backgroundSize: 'cover', height: '25rem', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundImage: `url(${loginCard})` }} alt="" />
 								<div className="card-body text-left">
@@ -67,7 +67,16 @@ class AboutYou extends React.Component {
 								</div>
 							</div>
 						</div>
-						<div class="col-md-8 col-sm-12">
+						 */}
+						
+						
+						
+						
+						
+						
+						
+						
+						<div class="offset-md-3 col-md-9 col-sm-12">
 							<h1 class="mt-4">Introduction to ReactJs - JavaScript library</h1>	
 			        <p class="lead">
 			          by
