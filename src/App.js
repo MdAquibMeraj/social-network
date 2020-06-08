@@ -8,6 +8,7 @@ import Home from './components/Home';
 import About from './components/AboutYou';
 import ContactUs from './components/ContactUs';
 import Login from './components/Login';
+import BlogPost from './components/BlogPost';
 import './App.css';
 import './theme-3.css';
 
@@ -21,7 +22,9 @@ class App extends Component {
               <Route exact path='/home' component={Home}></Route> 
               <Route exact path='/about' component={About}></Route>
               <Route exact path='/contact' component={ContactUs}></Route>
-              <Route exact path='/login' component={Login}></Route> 
+              <Route exact path='/login' component={Login}></Route>
+              <Route exact path='/blog-post' component={BlogPost}></Route>
+               
             </Switch> 
           </div> 
        </Router> 
