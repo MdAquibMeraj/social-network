@@ -6,7 +6,7 @@ const blogs = (
 ) => {
 	switch (action.type) {
 		case BLOG_LIST:
-			return [...state, action.payload];
+			return [...state, ...action.payload];
 		default:
 			return state;
 	}
