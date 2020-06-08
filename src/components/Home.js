@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { getBloglist } from '../js/actions';
+import Header from './Header';
 
 class Home extends React.Component {
 	componentDidMount() {
@@ -15,6 +16,7 @@ class Home extends React.Component {
 	render() {
 		return (
 			<Fragment>
+				<Header goTo={this.redirect} />
 				<div className="main-wrapper">
 					<section className="cta-section theme-bg-light py-5">
 						<div className="container text-center">
@@ -41,8 +43,8 @@ class Home extends React.Component {
 			</Fragment>);
 	}
 
-	redirect = () => {
-	 return this.props.history.push("/about");
+	redirect = (pushState) => {
+	 return this.props.history.push(pushState);
 	}
 
 	renderBlogList = () => {
@@ -56,7 +58,7 @@ class Home extends React.Component {
 							<h3 className="title mb-1"><a href="blog-post.html">{title}</a></h3>
 							<div className="meta mb-1"><span className="date">{date}</span><span className="time">5 min read</span><span className="comment"><a href="#">8 comments</a></span></div>
 							<div className="intro">{description}</div>
-							<a href="" className="more-link" onClick={this.redirect}>Read more →</a>
+							<a href="" className="more-link" onClick={() => this.redirect('/about')}>Read more →</a>
 						</div>
 					</div>
 				</div>
