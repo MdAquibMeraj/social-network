@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
 import { Provider } from "react-redux";
 
 import rootReducer from "./js/reducers";
 import App from './App';
 // import * as serviceWorker from './serviceWorker';
+const middlewares = [thunk];
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer,{ blog: [] }, applyMiddleware(...middlewares));
 
 const rootElement = document.getElementById("root");
 // Replace your existing ReactDOM.render() with below

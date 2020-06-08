@@ -1,15 +1,16 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
+import { bindActionCreators } from 'redux';
 
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { bloglist } from '../js/actions';
+import { getBloglist } from '../js/actions';
 
 class Home extends React.Component {
 	componentDidMount() {
-		this.props.blogList();
+		this.props.fetchBlogs();
 	}
 	render() {
 		return (
@@ -41,7 +42,6 @@ class Home extends React.Component {
 	}
 
 	redirect = () => {
-	 console.log('redirect');
 	 return this.props.history.push("/about");
 	}
 
@@ -67,7 +67,6 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => state;
-
-const mapDispatchToProps = dispatch => ({ blogList: () => { dispatch(bloglist()) } });
+const mapDispatchToProps = dispatch => bindActionCreators({ fetchBlogs: getBloglist }, dispatch);
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));
