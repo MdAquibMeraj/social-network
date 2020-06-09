@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import reduxArchImg from '../assets/redux_arch.png';
 import reactjsVdomImg from '../assets/reactjs_v_dom.jpg';
@@ -8,9 +8,15 @@ import Header from './Header';
 
 class AboutYou extends React.Component {
 	renderProfile = () => {
+		const { userData } = this.props;
 		return (
 			<Fragment>
-				<Header goTo={this.redirect} />
+				{
+					userData &&
+					<Header
+						userData={userData}
+					/>
+				}
 				<div className="aboutyou p-md-3">
 					<div className="container">
 						<div className="row">
@@ -25,48 +31,6 @@ class AboutYou extends React.Component {
 									<p className="card-text"><strong>Interest: </strong> Website development </p>
 									<p className="card-text"><strong>Skills: </strong> UI development </p>
 									<div className="">
-										<div className="progress mt-2 custom-progress">
-											<div className="progress-bar bg-primary" role="progressbar" aria-valuenow="75"
-											aria-valuemin="0" aria-valuemax="100" style={{width:'100%'}}>
-												<span>JavaScript</span>
-											</div>
-										</div>
-										<div className="progress mt-2 custom-progress">
-											<div className="progress-bar bg-info" role="progressbar" aria-valuenow="75"
-											aria-valuemin="0" aria-valuemax="100" style={{width:'100%'}}>
-												<span>HTML5</span>
-											</div>
-										</div>
-										<div className="progress mt-2 custom-progress">
-											<div className="progress-bar bg-success" role="progressbar" aria-valuenow="75"
-											aria-valuemin="0" aria-valuemax="100" style={{width:'100%'}}>
-												<span>JavaScript</span>
-											</div>
-										</div>
-										<div className="progress mt-2 custom-progress">
-											<div className="progress-bar bg-danger" role="progressbar" aria-valuenow="75"
-											aria-valuemin="0" aria-valuemax="100" style={{width:'100%'}}>
-												<span>CSS3</span>
-											</div>
-										</div>
-										<div className="progress mt-2 custom-progress">
-											<div className="progress-bar bg-warning" role="progressbar" aria-valuenow="75"
-											aria-valuemin="0" aria-valuemax="100" style={{width:'100%'}}>
-												<span>Bootstrap v4</span>
-											</div>
-										</div>
-										<div className="progress custom-progress mt-2">
-											<div className="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75"
-											aria-valuemin="0" aria-valuemax="100" style={{width:'100%'}}>
-												<span><strong>ReactJs</strong></span>
-											</div>
-										</div>
-										<div className="progress custom-progress mt-2">
-											<div className="progress-bar bg-dark" role="progressbar" aria-valuenow="75"
-											aria-valuemin="0" aria-valuemax="100" style={{width:'100%'}}>
-												<span>NodeJs</span>
-											</div>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -112,10 +76,6 @@ class AboutYou extends React.Component {
 		);
 	}
 
-	redirect = (pushState) => {
-		return this.props.history.push(pushState);
-	}
-
 	render() {
 		return (
 			<div>
@@ -124,4 +84,8 @@ class AboutYou extends React.Component {
 		)
 	}
 }
-export default withRouter(AboutYou);
+
+const mapStateToProps = (state) => ({ ...state });
+
+export default connect(mapStateToProps, null)(AboutYou);
+

@@ -1,14 +1,22 @@
 import React, { Fragment } from 'react';
-import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Header from './Header';
+import BlogPostBanner from '../assets/blogs/blog-post-banner.jpg';
+import PromoBanner from '../assets/blogs/promo-banner.jpg';
 
 class BlogPost extends React.Component {
 	render() {
+		const { userData } = this.props;
 		return (
 			<Fragment>
-				<Header goTo={this.redirect} />
-				<div className="main-wrapper">
+				{
+				userData &&
+				<Header
+					userData={userData}
+				/>
+				}
+				<div className="main-wrapper text-left">
 					<article className="blog-post px-3 py-5 p-md-5">
 						<div className="container">
 							<header className="blog-post-header">
@@ -23,17 +31,17 @@ class BlogPost extends React.Component {
 							</header>
 							<div className="blog-post-body">
 								<figure className="blog-banner">
-									<a href="https://made4dev.com">
+									<a href="https://made4dev.com?ref=devblog" target="_blank">
 										<img
 											className="img-fluid"
-											src="assets/images/blog/blog-post-banner.jpg"
+											src={BlogPostBanner}
 											alt="image"
 										/>
 									</a>
 									<figcaption className="mt-2 text-center image-caption">
 										Image Credit:{" "}
-										<a href="https://made4dev.com?ref=devblog" target="_blank">
-											made4dev.com (Premium Programming T-shirts)
+										<a href="https://xyz.com/blogpostbanner" target="_blank">
+											Premium Programming T-shirts
             </a>
 									</figcaption>
 								</figure>
@@ -58,7 +66,7 @@ class BlogPost extends React.Component {
           . Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
           commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
           et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+11111          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
           consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
           nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
           venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
@@ -219,7 +227,7 @@ class BlogPost extends React.Component {
 								<a href="https://made4dev.com" target="_blank">
 									<img
 										className="img-fluid"
-										src="assets/images/promo-banner.jpg"
+										src={PromoBanner}
 										alt="image"
 									/>
 								</a>
@@ -234,10 +242,8 @@ class BlogPost extends React.Component {
 
 		)
 	}
-
-	redirect = (pushState) => {
-		return this.props.history.push(pushState);
-	}
 }
 
-export default withRouter(BlogPost);
+const mapStateToProps = (state) => ({ ...state });
+
+export default connect(mapStateToProps, null)(BlogPost);

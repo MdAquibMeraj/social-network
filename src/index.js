@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import 'jquery';
+import 'popper.js';
+import 'bootstrap/dist/js/bootstrap';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from "react-redux";
@@ -12,7 +14,7 @@ import App from './App';
 // import * as serviceWorker from './serviceWorker';
 const middlewares = [thunk];
 
-const store = createStore(rootReducer,{ blog: [] }, applyMiddleware(...middlewares));
+const store = createStore(rootReducer,{ blog: [], userData: null }, applyMiddleware(...middlewares));
 
 const rootElement = document.getElementById("root");
 // Replace your existing ReactDOM.render() with below

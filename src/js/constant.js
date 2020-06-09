@@ -4,4 +4,19 @@ export const LOGIN_USER = 'LOGIN_USER';
 
 
 // API URL
-export const GET_BLOGS_URL = 'https://my-json-server.typicode.com/MdAquibMeraj/backend-server/blogs';
+export const BASE_URL = 'https://my-json-server.typicode.com/MdAquibMeraj/backend-server/';
+export const GET_BLOG_LIST = 'bloglist/';
+export const GET_USER_DATA = 'users/';
+
+export const userCredentials = [
+	{
+		email: 'harsh.kumar@gmail.com',
+		id: 'haKumar', 
+		password: "password"
+	},
+	{
+		email: 'aquib.meraj@gmail.com',
+		id: 'aqMeraj',
+		password: "password"
+	}
+];
