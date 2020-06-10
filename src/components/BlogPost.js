@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 
 import Header from './Header';
 import BlogPostBanner from '../assets/blogs/blog-post-banner.jpg';
@@ -8,14 +9,14 @@ import PromoBanner from '../assets/blogs/promo-banner.jpg';
 class BlogPost extends React.Component {
 	render() {
 		const { userData } = this.props;
+		if (!userData) {
+			return <Redirect to="/login" />;
+		}
 		return (
 			<Fragment>
-				{
-				userData &&
 				<Header
 					userData={userData}
 				/>
-				}
 				<div className="main-wrapper text-left">
 					<article className="blog-post px-3 py-5 p-md-5">
 						<div className="container">
@@ -88,7 +89,7 @@ class BlogPost extends React.Component {
 										{"\n"}
 										{"    "}if (cls.search(/\bno\-highlight\b/) != -1){"\n"}
 										{"      "}return process(block, true, 0x0F) +{"\n"}
-										{"             "}` class="${"{"}cls{"}"}"`;{"\n"}
+										{"             "}` className="${"{"}cls{"}"}"`;{"\n"}
 										{"  "}
 										{"}"} catch (e) {"{"}
 										{"\n"}

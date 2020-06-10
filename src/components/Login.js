@@ -17,7 +17,7 @@ class Login extends React.Component {
 
 	updatePassword = (event) => this.setState({ password: event.target.value });
 
-	login = () => {
+	login = (event) => {
 		const { email, password } = this.state;
 		if (email && password) {
 			const userData = userCredentials.find(user => user.email === email);
@@ -25,11 +25,12 @@ class Login extends React.Component {
 				this.props.fetchLoginDetails(userData.id);
 			}
 		}
+		event.preventDefault();
 	}
 
 	componentDidUpdate = () => {
 		const { userData } = this.props;
-		if (userData) {
+		if (userData && userData.id) {
 			this.props.history.push('/home');
 		}
 	}
@@ -49,38 +50,39 @@ class Login extends React.Component {
 										<img src={logo} alt="logo" className="logo" />
 									</div>
 									<p className="login-card-description">Sign into your account</p>
-									<form action="#!">
-										<div className="form-group">
-											<label for="email" className="sr-only">Email</label>
-											<input
-												type="email"
-												name="email"
-												id="email"
-												className="form-control"
-												placeholder="Email address"
-												onChange={this.updateUserName.bind(this)}
-												value={this.state.email}
-											/>
-										</div>
-										<div className="form-group mb-4">
-											<label for="password" className="sr-only">Password</label>
-											<input
-												type="password"
-												name="password"
-												id="password"
-												className="form-control"
-												placeholder="***********"
-												onChange={this.updatePassword.bind(this)}
-												value={this.state.password}
+									<form class="signup-form form-group mb-4" onSubmit={this.login}>
+											<div class="form-group">
+												<label class="sr-only" for="semail">Your email</label>
+												<input
+													type="email"
+													id="semail"
+													name="semail1"
+													class="form-control mr-md-1 semail"
+													onChange={this.updateUserName.bind(this)}
+													value={this.state.email}
+													required 
+													placeholder="Email address" />
+											</div>
+											<div className="form-group mb-4">
+												<label htmlFor="password" className="sr-only">Password</label>
+												<input
+													type="password"
+													name="password"
+													id="password"
+													className="form-control"
+													placeholder="***********"
+													onChange={this.updatePassword.bind(this)}
+													value={this.state.password}
+													required 
 												/>
-										</div>
-										<input
-											name="login"
-											id="login"
-											className="btn btn-block login-btn mb-4"
-											type="button"
-											value="Login"
-											onClick={this.login} />
+											</div>
+											<button
+												name="login"
+												id="login"
+												className="btn btn-block login-btn"
+												type="button"
+												type="submit"
+											>Login</button>
 									</form>
 									<nav className="login-card-footer-nav">
 										<a href="#!">Terms of use.</a>

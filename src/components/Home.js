@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,20 +13,20 @@ import Loader from './Loader';
 class Home extends React.Component {
 	componentDidMount() {
 		const { userData } = this.props;
-		if (userData) {
+		if (userData && userData.id) {
 			this.props.fetchBlogs(userData.id);
 		}
 	}
 	render() {
 		const { userData } = this.props;
+		if (!userData) {
+			return <Redirect to="/login" />;
+		}
 		return (
 			<Fragment>
-				{
-					userData && 
-					<Header
-						userData={userData}
-					/>
-				}
+				<Header
+					userData={userData}
+				/>
 				<div className="main-wrapper">
 					<section className="cta-section theme-bg-light py-4">
 						<div className="container text-center">

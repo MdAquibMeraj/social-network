@@ -39,11 +39,15 @@ export const getUserData = (userId) => {
           if(res.error) {
               throw(res.error);
           }
-          dispatch(updateUserData(res));
+          if (res.id) {
+            dispatch(updateUserData(res));
+          } else {
+            throw(res);
+          }
           return res;
       })
       .catch(error => {
-          dispatch(bloglist(error));
+        throw(error);
       })
   }
 }

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 
 import reduxArchImg from '../assets/redux_arch.png';
 import reactjsVdomImg from '../assets/reactjs_v_dom.jpg';
@@ -9,14 +10,14 @@ import Header from './Header';
 class AboutYou extends React.Component {
 	renderProfile = () => {
 		const { userData } = this.props;
+		if (!userData) {
+			return <Redirect to="/login" />;
+		}
 		return (
 			<Fragment>
-				{
-					userData &&
-					<Header
-						userData={userData}
-					/>
-				}
+				<Header
+					userData={userData}
+				/>
 				<div className="aboutyou p-md-3">
 					<div className="container">
 						<div className="row">
@@ -44,9 +45,9 @@ class AboutYou extends React.Component {
 
 
 
-							<div class="offset-md-3 col-md-9 col-sm-12">
-								<h1 class="mt-4">Introduction to ReactJs - JavaScript library</h1>
-								<p class="lead">
+							<div className="offset-md-3 col-md-9 col-sm-12">
+								<h1 className="mt-4">Introduction to ReactJs - JavaScript library</h1>
+								<p className="lead">
 									by
 		      	    <a href="#"> Aquib Meraj</a>
 								</p>
@@ -54,20 +55,20 @@ class AboutYou extends React.Component {
 								<p>Posted on July 1, 2020 at 12:00 PM</p>
 								<hr />
 								<h3> What is ReactJs ?</h3>
-								<p class="lead">React (also known as React.js or ReactJS) is an open-source JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications. ReactJs deals with EcmaScript-6 features and use JSX inspite of HTML for transpiler.</p>
+								<p className="lead">React (also known as React.js or ReactJS) is an open-source JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications. ReactJs deals with EcmaScript-6 features and use JSX inspite of HTML for transpiler.</p>
 								<h3 className="mt-5"> Why ReactJs ?</h3>
-								<img class="img-fluid rounded" src={reactjsVdomImg} alt="" />
+								<img className="img-fluid rounded" src={reactjsVdomImg} alt="" />
 								<hr />
 								<h4 className="text-left"> Features:</h4>
 								<p className="text-left"><strong>State - </strong>State can be considered as an instance of react component class and is majorly used for communicating with a component. It is an updatable structure that is used to contain data or information about the component and can change over time. </p>
 								<p className="text-left"><strong>Props - </strong>Props are read-only components. It allows passing data from one component to other components. Props are immutable so we cannot modify the props from inside the component. </p>
 								<h6 className="mt-5"> Lifecycle of ReactJs</h6>
-								<img class="img-fluid rounded" src={reactLifeCycleImg} alt="" />
+								<img className="img-fluid rounded" src={reactLifeCycleImg} alt="" />
 								<hr />
 								<h4 className="text-left">Introduction to Redux:</h4>
 								<p className="text-left">Redux is an open-source JavaScript library for managing application state. It is most commonly used with libraries such as React or Angular for building user interfaces. Similar to Facebook's Flux architecture, it was created by Dan Abramov and Andrew Clark.</p>
 								<h6 className="mt-5"> Redux architecture</h6>
-								<img class="img-fluid rounded" src={reduxArchImg} alt="" />
+								<img className="img-fluid rounded" src={reduxArchImg} alt="" />
 							</div>
 						</div>
 					</div>

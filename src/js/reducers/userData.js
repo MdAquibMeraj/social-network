@@ -1,7 +1,7 @@
 import { LOGIN_USER } from '../constant';
 
 const userData = (
-	state = {},
+	state = null,
 	action
 ) => {
 	switch (action.type) {

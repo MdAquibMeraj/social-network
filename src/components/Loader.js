@@ -3,8 +3,8 @@ import React from 'react';
 class Loader extends React.Component {
 	render() {
 		return (
-			<div class="block" style={{ background: '#fff'}}>
-				<div class="clock2"></div> 
+			<div className="block" style={{ background: '#fff'}}>
+				<div className="clock2"></div> 
 			</div>
 		)
 	}
