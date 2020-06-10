@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
+import { bindActionCreators } from 'redux';
 
+import { logout } from '../js/actions';
 import reduxArchImg from '../assets/redux_arch.png';
 import reactjsVdomImg from '../assets/reactjs_v_dom.jpg';
 import reactLifeCycleImg from '../assets/lifecycle_hooks.jpg';
@@ -9,7 +11,7 @@ import Header from './Header';
 
 class AboutYou extends React.Component {
 	renderProfile = () => {
-		const { userData } = this.props;
+		const { userData, signout } = this.props;
 		if (!userData) {
 			return <Redirect to="/login" />;
 		}
@@ -17,6 +19,7 @@ class AboutYou extends React.Component {
 			<Fragment>
 				<Header
 					userData={userData}
+					signout={signout}
 				/>
 				<div className="aboutyou p-md-3">
 					<div className="container">
@@ -87,6 +90,7 @@ class AboutYou extends React.Component {
 }
 
 const mapStateToProps = (state) => ({ ...state });
+const mapDispatchToProps = dispatch => bindActionCreators({ signout: logout }, dispatch);
 
-export default connect(mapStateToProps, null)(AboutYou);
+export default connect(mapStateToProps, mapDispatchToProps)(AboutYou);
 

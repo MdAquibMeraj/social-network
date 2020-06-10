@@ -1,4 +1,4 @@
-import { LOGIN_USER } from '../constant';
+import { LOGIN_USER, CLEAR_LOGIN } from '../constant';
 
 const userData = (
 	state = null,
@@ -9,6 +9,8 @@ const userData = (
 		 return {
 			 ...action.payload
 		 };
+		case CLEAR_LOGIN:
+			return state;
 		default:
 			return state;
 	}

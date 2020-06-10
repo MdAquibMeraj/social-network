@@ -6,7 +6,7 @@ import { Link, Redirect } from "react-router-dom";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { getBloglist } from '../js/actions';
+import { getBloglist, logout } from '../js/actions';
 import Header from './Header';
 import Loader from './Loader';
 
@@ -18,7 +18,7 @@ class Home extends React.Component {
 		}
 	}
 	render() {
-		const { userData } = this.props;
+		const { userData, signout } = this.props;
 		if (!userData) {
 			return <Redirect to="/login" />;
 		}
@@ -26,6 +26,7 @@ class Home extends React.Component {
 			<Fragment>
 				<Header
 					userData={userData}
+					signout={signout}
 				/>
 				<div className="main-wrapper">
 					<section className="cta-section theme-bg-light py-4">
@@ -69,6 +70,10 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = (state) => ({ ...state });
-const mapDispatchToProps = dispatch => bindActionCreators({ fetchBlogs: getBloglist }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+	{
+		fetchBlogs: getBloglist,
+		signout: logout
+	}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

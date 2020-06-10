@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { faUser, faBookmark, faHome } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faHome, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Header extends React.Component {
@@ -10,7 +10,6 @@ class Header extends React.Component {
 			userData: {
 				description,
 				firstName,
-				lastName,
 				skills,
 				profile
 			}
@@ -36,16 +35,26 @@ class Header extends React.Component {
 								<Link className="nav-link" to='/home'><FontAwesomeIcon className="mr-2" icon={faHome} />Blog Home <span className="sr-only">(current)</span></Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to='/blog-post'><FontAwesomeIcon className="mr-2" icon={faBookmark} />Blog Post</Link>
+								<Link className="nav-link" to='/about'><FontAwesomeIcon className="mr-2" icon={faUser} />About</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to='/about'><FontAwesomeIcon className="mr-2" icon={faUser} />About</Link>
+								<a
+									className="nav-link"
+									href='' onClick={this.logout}
+								>
+									<FontAwesomeIcon className="mr-2" icon={faSignOutAlt} />Logout
+								</a>
 							</li>
 						</ul>
 					</div>
 				</nav>
 			</header>
 		)
+	}
+
+	logout = () => {
+		this.props.signout();
+		this.props.history.push('/login');
 	}
 
 	renderSkills = (skills) => {
@@ -62,7 +71,8 @@ class Header extends React.Component {
 
 Header.propTypes = {
 	goTo: PropTypes.func,
-	userData: PropTypes.object
+	userData: PropTypes.object,
+	signout: PropTypes.func
 };
 
 export default Header;

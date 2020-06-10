@@ -1,14 +1,16 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
+import { bindActionCreators } from 'redux';
 
 import Header from './Header';
+import { logout } from '../js/actions';
 import BlogPostBanner from '../assets/blogs/blog-post-banner.jpg';
 import PromoBanner from '../assets/blogs/promo-banner.jpg';
 
 class BlogPost extends React.Component {
 	render() {
-		const { userData } = this.props;
+		const { userData, signout } = this.props;
 		if (!userData) {
 			return <Redirect to="/login" />;
 		}
@@ -16,6 +18,7 @@ class BlogPost extends React.Component {
 			<Fragment>
 				<Header
 					userData={userData}
+					signout={signout}
 				/>
 				<div className="main-wrapper text-left">
 					<article className="blog-post px-3 py-5 p-md-5">
@@ -246,5 +249,6 @@ class BlogPost extends React.Component {
 }
 
 const mapStateToProps = (state) => ({ ...state });
+const mapDispatchToProps = dispatch => bindActionCreators({ signout: logout }, dispatch);
 
-export default connect(mapStateToProps, null)(BlogPost);
+export default connect(mapStateToProps, mapDispatchToProps)(BlogPost);

@@ -1,4 +1,11 @@
-import { BLOG_LIST, LOGIN_USER, BASE_URL, GET_USER_DATA, GET_BLOG_LIST } from '../constant';
+import {
+  BLOG_LIST,
+  LOGIN_USER,
+  BASE_URL,
+  GET_USER_DATA,
+  GET_BLOG_LIST,
+  CLEAR_LOGIN
+} from '../constant';
 
 
 const bloglist = (payload) => ({
@@ -40,14 +47,14 @@ export const getUserData = (userId) => {
               throw(res.error);
           }
           if (res.id) {
-            dispatch(updateUserData(res));
-          } else {
-            throw(res);
+            return dispatch(updateUserData(res));
           }
-          return res;
+          throw(res);
       })
       .catch(error => {
         throw(error);
       })
   }
 }
+
+export const logout = () => dispatch => dispatch({ type: CLEAR_LOGIN });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router';
 
 import { getUserData } from '../js/actions';
 import logo from '../assets/logo.svg';
@@ -28,14 +29,12 @@ class Login extends React.Component {
 		event.preventDefault();
 	}
 
-	componentDidUpdate = () => {
-		const { userData } = this.props;
-		if (userData && userData.id) {
-			this.props.history.push('/home');
-		}
-	}
 
 	render() {
+		const { userData } = this.props;
+		if (userData && userData.id) {
+			return <Redirect to="/home" />;
+		}
 		return (
 			<main className="d-flex align-items-center min-vh-100 py-3 py-md-0">
 				<div className="container p-5">
@@ -98,7 +97,7 @@ class Login extends React.Component {
 	}
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = (state) => ({ ...state });
 const mapDispatchToProps = dispatch => bindActionCreators({ fetchLoginDetails: getUserData }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
