@@ -11,6 +11,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.5.0",
+    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "jQuery": "^1.7.4",
     "jquery": "^3.5.1",
@@ -27,7 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node app",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

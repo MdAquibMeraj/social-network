@@ -29,7 +29,7 @@ class BlogPost extends React.Component {
 									<span className="date">Published 3 months ago</span>
 									<span className="time">5 min read</span>
 									<span className="comment">
-										<a href="#">4 comments</a>
+										<a href="">4 comments</a>
 									</span>
 								</div>
 							</header>

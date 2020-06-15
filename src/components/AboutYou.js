@@ -52,7 +52,7 @@ class AboutYou extends React.Component {
 								<h1 className="mt-4">Introduction to ReactJs - JavaScript library</h1>
 								<p className="lead">
 									by
-		      	    <a href="#"> Aquib Meraj</a>
+		      	    <a href=""> Aquib Meraj</a>
 								</p>
 								<hr />
 								<p>Posted on July 1, 2020 at 12:00 PM</p>

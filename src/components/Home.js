@@ -40,7 +40,7 @@ class Home extends React.Component {
 						</div>
 					</section>
 					<footer className="footer text-center py-2 theme-bg-dark">
-						<small>&copy; by <a href="http://xyz.com/merajAhmed" target="_blank">Meraj Ahmed</a> with <FontAwesomeIcon icon={faHeart} /></small>
+						<small>&copy; by <a href="http://xyz.com/merajAhmed" rel="noopener noreferrer" target="_blank">Meraj Ahmed</a> with <FontAwesomeIcon icon={faHeart} /></small>
 					</footer>
 				</div>
 			</Fragment>);
@@ -55,7 +55,7 @@ class Home extends React.Component {
 						<img className="mr-3 img-fluid post-thumb d-none d-md-flex" src={thumbnail} alt="" />
 						<div className="media-body">
 							<h3 className="title mb-1"><Link to="/blog-post">{title}</Link></h3>
-							<div className="meta mb-1"><span className="date">{date}</span><span className="time">5 min read</span><span className="comment"><a href="#">8 comments</a></span></div>
+							<div className="meta mb-1"><span className="date">{date}</span><span className="time">5 min read</span><span className="comment"><a href="">8 comments</a></span></div>
 							<div className="intro">{description}</div>
 							<Link to="/blog-post" className="more-link">Read more →</Link>
 						</div>

@@ -79,7 +79,6 @@ class Login extends React.Component {
 												name="login"
 												id="login"
 												className="btn btn-block login-btn"
-												type="button"
 												type="submit"
 											>Login</button>
 									</form>

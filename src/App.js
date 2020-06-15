@@ -99,7 +99,7 @@ class App extends Component {
           </Switch>
           <div id="config-panel" className="config-panel d-none d-lg-block">
             <div className="panel-inner">
-              <a id="config-trigger" className="config-trigger config-panel-hide text-center pt-2" href="#"><FontAwesomeIcon className="fas fa-spin mx-auto" icon={faCog} data-fa-transform="down-6" /> </a>
+              <a id="config-trigger" className="config-trigger config-panel-hide text-center pt-2" href=""><FontAwesomeIcon className="fas fa-spin mx-auto" icon={faCog} data-fa-transform="down-6" /> </a>
               <h5 className="panel-title">Choose Colour</h5>
               <ul id="color-options" className="list-inline mb-0">
                 <li className="theme-1 active list-inline-item"><a data-style='/css/theme-1.css' href=""></a></li>
@@ -111,7 +111,7 @@ class App extends Component {
                 <li className="theme-7  list-inline-item"><a data-style='/css/theme-7.css' href=""></a></li>
                 <li className="theme-8  list-inline-item"><a data-style='/css/theme-8.css' href=""></a></li>
               </ul>
-              <a id="config-close" className="close" href="#"><FontAwesomeIcon icon={faTimesCircle} /> </a>
+              <a id="config-close" className="close" href=""><FontAwesomeIcon icon={faTimesCircle} /> </a>
             </div>
           </div>
         </div>
