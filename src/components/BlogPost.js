@@ -7,18 +7,17 @@ import Header from './Header';
 import { logout } from '../js/actions';
 import BlogPostBanner from '../assets/blogs/blog-post-banner.jpg';
 import PromoBanner from '../assets/blogs/promo-banner.jpg';
-
+import { defaultUserData } from '../js/constant';
 class BlogPost extends React.Component {
 	render() {
-		const { userData, signout } = this.props;
-		if (!userData) {
-			return <Redirect to="/login" />;
-		}
+		// const { userData, signout } = this.props;
+		// if (!userData) {
+		// 	return <Redirect to="/login" />;
+		// }
 		return (
 			<Fragment>
 				<Header
-					userData={userData}
-					signout={signout}
+					userData={defaultUserData}
 				/>
 				<div className="main-wrapper text-left">
 					<article className="blog-post px-3 py-5 p-md-5">

@@ -20,8 +20,8 @@ import './loader.css';
 
 class App extends Component {
   componentDidMount() {
-    this.triggerTheme();
     this.clickEvents();
+    this.triggerTheme();
   }
 
   clickEvents = () => {
@@ -71,13 +71,13 @@ class App extends Component {
     if (!sheet) {
       sheet = document.createElement('link');
       sheet.rel = 'stylesheet';
-      sheet.href = e || './assets/css/theme-1.css';
+      sheet.href = e || './assets/css/theme-3.css';
       sheet.type = 'text/css';
       sheet.id = "theme-style";
       document.head.appendChild(sheet);
     } else {
       sheet.rel = 'stylesheet';
-      sheet.href = e || './assets/css/theme-1.css';
+      sheet.href = e || './assets/css/theme-3.css';
       sheet.type = 'text/css';
       sheet.id = "theme-style";
     }
@@ -89,12 +89,11 @@ class App extends Component {
         <div className="App">
           <Switch>
             <ErrorBoundary>
-              <Route exact path='/' component={Login}></Route>
-              <Route exact path='/home' component={Home}></Route>
+              <Route exact path='/' component={Home}></Route>
               <Route exact path='/about' component={About}></Route>
               <Route exact path='/contact' component={ContactUs}></Route>
               <Route exact path='/login' component={Login}></Route>
-              <Route exact path='/blog-post' component={BlogPost}></Route>
+              <Route exact path='/blog-post/:id' component={BlogPost}></Route>
             </ErrorBoundary>
           </Switch>
           <div id="config-panel" className="config-panel d-none d-lg-block">

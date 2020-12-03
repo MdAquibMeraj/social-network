@@ -1,9 +1,10 @@
-import { LOGIN_USER, CLEAR_LOGIN } from '../constant';
+import { LOGIN_USER, CLEAR_LOGIN, defaultUserData } from '../constant';
 
 const userData = (
-	state = null,
+	state = defaultUserData,
 	action
 ) => {
+	console.log(action, state);
 	switch (action.type) {
 		case LOGIN_USER: 
 		 return {

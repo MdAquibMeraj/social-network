@@ -10,21 +10,22 @@ class Header extends React.Component {
 			userData: {
 				description,
 				firstName,
+				lastName,
 				skills,
 				profile
 			}
 		} = this.props;
 		return (
 			<header className="header text-center">
-				<h1 className="blog-name pt-lg-3 mb-0"><Link to="/about">{firstName}'s Blog</Link></h1>
+				<h1 className="blog-name pt-lg-1 mb-0">{firstName} {lastName}</h1>
 				<nav className="navbar navbar-expand-lg navbar-dark">
 					<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
 						<span className="navbar-toggler-icon" />
 					</button>
 					<div id="navigation" className="collapse navbar-collapse flex-column">
 						<div className="profile-section pt-3 pt-lg-0">
-							<img className="profile-image mb-3 rounded-circle mx-auto" src={profile} alt="" />
-							<div className="bio mb-3">{description}<br /><Link to="/about">Find out more about this application</Link></div>{/*//bio*/}
+							<img className="profile-image mb-3 rounded-circle mx-auto" src={profile} alt="Mohsin Tariq" />
+							<div className="bio mb-3">{description}<br /><a href="https://www.linkedin.com/in/mohsin-tariq--reactjs/">Find out more...</a></div>{/*//bio*/}
 							<div className="row justify-content-center">
 								{this.renderSkills(skills)}
 							</div>
@@ -37,14 +38,14 @@ class Header extends React.Component {
 							<li className="nav-item">
 								<Link className="nav-link" to='/about'><FontAwesomeIcon className="mr-2" icon={faUser} />About</Link>
 							</li>
-							<li className="nav-item">
+							{/* <li className="nav-item">
 								<a
 									className="nav-link"
 									href='' onClick={this.logout}
 								>
 									<FontAwesomeIcon className="mr-2" icon={faSignOutAlt} />Logout
 								</a>
-							</li>
+							</li> */}
 						</ul>
 					</div>
 				</nav>
